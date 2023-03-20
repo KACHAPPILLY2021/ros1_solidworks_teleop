@@ -23,10 +23,7 @@
       </ul>
     </li>
     <li>
-      <a href="#documentation">Documentation</a>
-      <ul>
-        <li><a href="#report">Report</a></li>
-      </ul>
+      <a href="#report">Report</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -36,7 +33,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributors">Contributors</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#license">License</a></li>
   </ol>
@@ -49,14 +45,10 @@
 
 
 
-Implemented Depth First Search algorithm using Object Oriented Programming in C++ and visualized its output using Micromouse simulator.
+
 
 Summary of tasks achieved:
-* Implemented DFS using a representation of the maze(mouse has no prior knowledge of walls except the boundaries.)
-* Generated path from current position to goal using the representation of the maze.
-* Moved the mouse using API interface commands and updated the walls as detected.
-* The robot halted when the mouse hit a wall, and DFS was employed to recalculate the path using prior wall data.
-* The described steps were repeated until the goal position was achieved.
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -73,6 +65,8 @@ Summary of tasks achieved:
 
 https://user-images.githubusercontent.com/90359587/224114369-b5f00615-7af0-4d97-913c-7f411d902ce6.mp4
 
+[![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/9MUCtm4vwkQ)
+
 <div align="center">
 
 
@@ -82,22 +76,17 @@ https://user-images.githubusercontent.com/90359587/224114369-b5f00615-7af0-4d97-
 </div>
 
 https://user-images.githubusercontent.com/90359587/224114921-8dc2fc18-b214-4058-93b2-5c4f953d4d5e.mp4
+
+[![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ABKqwfLOYEc)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- Document and Reports -->
-## Documentation
+## Report
 
-The documentation for this project can be found here.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Report
-
-Detailed decription for this project can be found in this [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/9MUCtm4vwkQ)
+Detailed decription for this project can be found in this [Report](https://github.com/KACHAPPILLY2021/ros1_solidworks_teleop/blob/main/Report/P1_662_jeffin_report.pdf)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -108,40 +97,22 @@ These are the instructions to get started on the project.
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
-* atleast C++17
+* ROS noetic 
 * OS - Linux (tested)
 
 
 ### Installation
 
-Installing the micromouse simulator and running the code.
-
-1. Make directory
+1. Copy the ```car_pkg``` folder in the ```src``` folder of the catkin workspace ```catkin_ws```.
    ```sh
-   mkdir ~/RWA2_simulator
+   cd ~/catkin_ws
    ```
-2. Clone the repos
+2. Build the package and source workspace:
    ```sh
-   cd ∼ /RWA2_simulator
+   catkin_make
    ```
    ```sh
-   git clone https://github.com/mackorone/mms.git
-   ```
-   ```sh
-   git clone https://github.com/micromouseonline/mazefiles.git
-   ```
-   ```sh
-   git clone https://github.com/KACHAPPILLY2021/maze_solving_algorithm.git
-   ```
-3. Compile Simulator
-   ```sh
-   sudo apt-get install qt5-default
-   ```
-   ```sh
-   cd mms/src
-   ```
-   ```sh
-   qmake && make
+   source ~/catkin_ws/devel/setup.bash
    ```
 
 
@@ -152,36 +123,39 @@ Installing the micromouse simulator and running the code.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-How to start simulator and use this DFS code in it.
-1. Start simulator
+### To run teleop 
+1. Open a terminal and source workspace and to open gazebo environment run this command :
    ```sh
-   cd ∼ /RWA2_simulator/mms/bin
+   roslaunch car_pkg template_launch.launch
+   ```
+2. Open a terminal and source workspace and to run teleop :
+   ```sh
+   rosrun car_pkg teleop_template.py
+   ```
+
+### To run the publisher subscriber demo 
+1. Open 3 different terminals.
+2. In first terminal, type following commands:
+   ```sh
+   source ~/catkin_ws/devel/setup.bash
    ```
    ```sh
-   ./mms
+   roslaunch car_pkg template_launch.launch
    ```
-2. Choose any maze type and Click on the + button as shown in figure.
-
-<img src="https://github.com/KACHAPPILLY2021/maze_solving_algorithm/blob/main/img/Screenshot%20from%202023-03-04%2020-22-05_2.png" alt="screenshot">
-
-3. **Directory**: Click Browse and navigate to 'maze_solving_algorithm'
-4. Enter **Build command** as:
+3. In second terminal, type following commands:
    ```sh
-   g++ src/main.cpp src/mouse.cpp src/node.cpp src/api.cpp
+   source ~/catkin_ws/devel/setup.bash
    ```
-5. Enter **Run Command** as :
-  ```sh
-  ./a.out
-  ```
-6. Then Press **Build**, followed by **RUN** under the **Controls** Section
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTORS -->
-## Contributors
-
-Here are the
+   ```sh
+   rosrun car_pkg publisher_node.py
+   ```
+4. In third terminal, type following commands:
+   ```sh
+   source ~/catkin_ws/devel/setup.bash
+   ```
+   ```sh
+   rosrun car_pkg subscriber_node.py
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
