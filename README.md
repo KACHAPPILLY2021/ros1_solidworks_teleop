@@ -43,12 +43,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-
-
-
+Designed a wheeled robot using Solidworks satisfying the required dimensions. Launched it in gazebo and moved it using teleop and publisher-subcriber in ```ROS 1```.
 
 Summary of tasks achieved:
-
+* Created robot model in ```SolidWorks``` and converted into ```urdf```.
+* Integrated ```lidar``` to the robot urdf and tuned values for ```PID``` controller.
+* Programmed with ```Python``` to publish values that change arbitrarily, causing the robot to move in circles.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
